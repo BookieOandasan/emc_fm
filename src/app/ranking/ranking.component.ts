@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RankingService } from './ranking.service';
 
 @Component({
   selector: 'app-ranking',
@@ -8,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class RankingComponent implements OnInit {
   showSelected: boolean= false;
   col:number=12;
+  applicants:any;
 
-  constructor() { }
+  constructor(private _rankingService:RankingService) { }
 
   ngOnInit() {
+    this._rankingService.getApplicants()
+      .then(
+        data=>{
+          this.applicants =data;
+        }
+      )
   }
 
   selected(){
