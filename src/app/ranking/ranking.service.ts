@@ -7,7 +7,7 @@ export class RankingService {
     constructor(private _httpClient: HttpClient) { }
 
     getApplicants():Promise<any>{
-      return this._httpClient.get('https://localhost:44398//odata/Applicants')
+      return this._httpClient.get('https://localhost:44353///odata/Applicants')
         .toPromise()
         .then(result=>{ 
             console.log("Applicant Result");

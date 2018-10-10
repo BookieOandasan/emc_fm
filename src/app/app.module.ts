@@ -24,12 +24,15 @@ import { httpInterceptorProviders } from './http-interceptors/index';
 import { RankingComponent } from './ranking/ranking.component';
 import { HomeComponent } from './home/home.component';
 import { UiModule } from './ui/ui.module';
+import { RankingService } from './ranking/ranking.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     UiModule,
+    AppRoutingModule,
     // import HttpClientModule after BrowserModule.
     HttpClientModule,
     HttpClientXsrfModule.withOptions({
@@ -62,6 +65,7 @@ import { UiModule } from './ui/ui.module';
   providers: [
     AuthService,
     HttpErrorHandler,
+    RankingService,
     MessageService,
     { provide: RequestCache, useClass: RequestCacheWithMap },
     httpInterceptorProviders
