@@ -1,5 +1,5 @@
 # emc_fm
-rm "Folder"
-git add .
-git commit -a -, "Comment"
-git push origim master
+rm "Folder" <br/>
+git add .  <br/>
+git commit -a -, "Comment"  <br/>
+git push origim master  <br/>
