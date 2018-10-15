@@ -34,4 +34,10 @@ export class RankingComponent implements OnInit {
     this.col=12
   }
 
+  convertToArray(num:number):string[]{
+    console.log(num)
+    console.log("Array" + new Array(num));
+    return new Array(num);
+  }
+
 }
