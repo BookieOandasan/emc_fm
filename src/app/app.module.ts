@@ -26,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 import { UiModule } from './ui/ui.module';
 import { RankingService } from './ranking/ranking.service';
 import { AppRoutingModule } from './app-routing.module';
+import { RankingAddComponent } from './ranking-add/ranking-add.component';
 
 @NgModule({
   imports: [
@@ -61,6 +62,7 @@ import { AppRoutingModule } from './app-routing.module';
     PackageSearchComponent,
     RankingComponent,
     HomeComponent,
+    RankingAddComponent,
   ],
   providers: [
     AuthService,

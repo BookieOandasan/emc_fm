@@ -1,80 +1,72 @@
-<div class=" container-fluid p-0 m-0 pt-1 mt-1">
+<div class="container-fluid p-0 m-0 pt-1 mt-1">
   <div class=row>
-
-
-    <div class="row" *ngFor="let applicant of applicants">
-      <div class="col-{{col}}">
-        <div class="card small mt-2">
+    <div class="container col-2 m-0 p-0" *ngFor="let applicant of applicants">
+      <div class="">
+        <div class="card mt-2">
           <div class="card-header small m-0 p-0"> <button class="btn small btn-link" (click)="selected(applicant)">{{applicant.firstname}}
               {{applicant.lastname}}</button>
           </div>
           <div class="card-body small">
             <div class="container-fluid row">
               <div class="col-1 " p-o m-0> <img src="assets//B.jpeg" height="75" width="75" aria-label="Pic"> </div>
-
               <div class="col-11 ">
-                <div class="row">Score:100</div>
-                <div class="row"> Rank:1</div>
-                <div class="row">School: UT</div>
-                <div class="row">Hobby: Golf</div>
+                <div class="row">Score:{{applicant.score}}</div>
+                <div class="row"> Rank:{{applicant.rank}}</div>
+                <div class="row">School: {{applicant.school}}</div>
+                <div class="row">Hobby: {{applicant.hobby}}</div>
               </div>
-
             </div>
-
-
           </div>
           <div class="card-footer small p-o m-0">
-            <div>Star Rating:
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
+            <div class="">Star Rating:
+              <div *ngIf="applicant.fiveStarRating">
+                <div class="list-inline-item" *ngFor="let item of convertToArray(applicant.fiveStarRating)">
+                  <li class="list-inline-item">
+                    <i class=" fa fa-star"></i>
+                  </li>
+                </div>
+              </div>
             </div>
-
-            <div>Likes: 20
+            <div>Likes: {{applicant.likes }}
               <i class="fa fa-thumbs-up"></i>
-
             </div>
           </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="continer-fluid col-3" *ngIf="showSelected">
-      <div class="card">
-        <div class="card-header bg-primary small p-0 m-0">Details: {{selectedApplicant.firstname}}
-            {{selectedApplicant.lastname}} <button class="btn small float-right bg-primary "
-            (click)=close()>
-            <i class="fa fa-window-close"></i>
-          </button></div>
-        <div class="card-body">
-          <div class="row">Age:52</div>
-          <div class="row">Address:111 Hwy 111, Indian Wells, CA 92210</div>
-          <div class="row">Mobile Number:555-555-3333 UT</div>
-          <div class="row">Email: IamCute@idk.com</div>
-          <div class="row">US Grad: Yes</div>
-          <div class="row">Contact Person: Dulce Oandasan</div>
-          <div class="row">Interview Date: 10/07/2018</div>
-          <div class="row">Interview Season: 2018</div>
-          <div class="row">Faculty Group: Awesome Group</div>
-          <div class="row">Comments: </div>
-          <div class="row m-1">- He is awesome!</div>
-          <div class="row m-1">- He is a good fit!</div>
-          <div class="row m-1">- He can be a good FM doctor someday!</div>
-          <div class="row m-1">- He has leadership qualities!</div>
-
-
-
-        </div>
-        <div class="card-footer bg-warning small p-o m-0">
-          <div class="row">Last Updated By: UserFn UserLn</div>
-          <div class="row">Last Updated date: 10/07/2018</div>
         </div>
       </div>
     </div>
+    <div class="col-xs-offset-0" *ngIf="showSelected">
+        <div class="card">
+          <div class="card-header bg-primary small p-0 m-0">Details: {{selectedApplicant.firstname}}
+            {{selectedApplicant.lastname}} <button class="btn small float-right bg-primary " (click)=close()>
+              <i class="fa fa-window-close"></i>
+            </button></div>
+          <div class="card-body">
+            <div class="row">Age:52</div>
+            <div class="row">Address:1{{selectedApplicant.address1}}
+              {{selectedApplicant.address2}},{{selectedApplicant.city}}
+              {{selectedApplicant.state}} {{selectedApplicant.zip}}</div>
+            <div class="row">Mobile Number:{{selectedApplicant.mobileNumber}}</div>
+            <div class="row">Email: I{{selectedApplicant.email}}</div>
+            <div class="row">US Grad: {{selectedApplicant.usGrad? 'Yes':'No'}}</div>
+            <div class="row">Contact Person: {{selectedApplicant.contactPerson}}</div>
+            <div class="row">Interview Date:{{selectedApplicant.interviewDate | date:'MM/dd/yyyy'}}</div>
+            <div class="row">Interview Season: {{selectedApplicant.interviewSeason}}</div>
+            <div class="row">Faculty Group: {{selectedApplicant.facultyGroup}}p</div>
+            <div class="row">Comments: </div>
+            <div class="row m-1">- He is awesome!</div>
+            <div class="row m-1">- He is a good fit!</div>
+            <div class="row m-1">- He can be a good FM doctor someday!</div>
+            <div class="row m-1">- He has leadership qualities!</div>
+  
+  
+  
+          </div>
+          <div class="card-footer bg-warning small p-o m-0">
+            <div class="row">Last Updated By: UserFn UserLn</div>
+            <div class="row">Last Updated date: 10/07/2018</div>
+          </div>
+        </div>
+      </div>
   </div>
+ 
 </div>
