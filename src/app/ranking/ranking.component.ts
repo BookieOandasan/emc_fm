@@ -7,10 +7,10 @@ import { RankingService } from './ranking.service';
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent implements OnInit {
-  showSelected: boolean= false;
+  showSelected: boolean= true;
   col:number=12;
   applicants:any;
-
+  selectedApplicant:ApplicantModel
   constructor(private _rankingService:RankingService) { }
 
   ngOnInit() {
@@ -18,17 +18,19 @@ export class RankingComponent implements OnInit {
       .then(
         data=>{
           this.applicants =data;
+          this.selectedApplicant =data[0]:
         }
       )
   }
 
-  selected(){
+  selected(secelted:ApplicantModel){
     this.showSelected = true;
-    this.col=9
+    this.selectedApplicant =secelted:
+    //this.col=9
   }
   close(){
     this.showSelected = false;
-    this.col=12
+    //this.col=12
   }
 
   convertToArray(num:number):string[]{
