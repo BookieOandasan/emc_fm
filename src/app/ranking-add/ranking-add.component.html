@@ -1,15 +1,18 @@
 <div class="card container-fluid p-0 m-0">
+    <form [formGroup]="applicantForm" (ngSubmit)="onSubmit()">
   <div class="card-header small bg-dark text-light">Add New Applicant
 
   </div>
+  
   <div class="card-body p-0 m-0">
+    
     <diV class="row ml-2 small text-muted">Basic Info:</diV>
     <div class="input-group p-1 m-1 small">
 
       <div class="input-group-prepend small">
         <span class="input-group-text small" id="basic-addon1">First Name</span>
       </div>
-      <input type="text" class="form-control small" placeholder="John" aria-label="Username" aria-describedby="basic-addon1">
+      <input type="text"  class="form-control small" required formControlName="firstName" placeholder="John" aria-label="Username" aria-describedby="basic-addon1">
 
       <div class="input-group-prepend small">
         <span class="input-group-text small" id="basic-addon1">Middle Name</span>
@@ -18,7 +21,7 @@
       <div class="input-group-prepend small">
         <span class="input-group-text small" id="basic-addon1">Last Name</span>
       </div>
-      <input type="text" class="form-control small" placeholder="Smith" aria-label="Username" aria-describedby="basic-addon1">
+      <input type="text" class="form-control small" required formControlName="lastName" placeholder="Smith" aria-label="Username" aria-describedby="basic-addon1">
     </div>
     <diV class="row ml-2 small text-muted">Address:</diV>
     <div class="input-group p-1 m-1">
@@ -97,10 +100,11 @@
       </div>
       <input type="text" class="form-control" placeholder="100" aria-label="Score" aria-describedby="basic-addon1">
     </div>
+ 
   </div>
-  <div class="card-footer small  p-1 m-0 bg-white"><button class="btn btn-primary btn-sm">
+  <div class="card-footer small  p-1 m-0 bg-white" ><button type="submit" class="btn btn-primary btn-sm" [disabled]="!applicantForm.valid">
       <i class="fa fa-save"></i>
       Save</button>
   </div>
-
+</form>
 </div>

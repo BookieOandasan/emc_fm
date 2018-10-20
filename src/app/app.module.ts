@@ -1,6 +1,6 @@
 import { NgModule }         from '@angular/core';
 import { BrowserModule }    from '@angular/platform-browser';
-import { FormsModule }      from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }      from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientXsrfModule } from '@angular/common/http';
 
@@ -36,6 +36,7 @@ import { RankingAddComponent } from './ranking-add/ranking-add.component';
     AppRoutingModule,
     // import HttpClientModule after BrowserModule.
     HttpClientModule,
+    ReactiveFormsModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'My-Xsrf-Cookie',
       headerName: 'My-Xsrf-Header',

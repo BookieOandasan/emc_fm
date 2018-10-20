@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ranking-add',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingAddComponent implements OnInit {
 
+  applicantForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl('')
+  });
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+    console.log("submit button")
+    console.warn(this.applicantForm.value);
   }
 
 }
