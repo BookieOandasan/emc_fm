@@ -1,18 +1,20 @@
 import { ApplicantModel } from './applicant.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
 @Injectable({providedIn: 'root'})
 export class RankingService {
-    constructor(private _httpClient: HttpClient) { }
+    private handleError: HandleError;
+    constructor(private _httpClient: HttpClient,httpErrorHandler: HttpErrorHandler) {
+        this.handleError = httpErrorHandler.createHandleError('RankingAddService'); }
 
-    getApplicants():Promise<any>{
-      return this._httpClient.get('https://localhost:44353///odata/Applicants')
-        .toPromise()
-        .then(result=>{ 
-            console.log("Applicant Result");
-            console.log(result)
-            return result})
+    getApplicants():Observable<ApplicantModel[]>{
+      return this._httpClient.get<ApplicantModel[]>('https://localhost:44353/odata/Applicants')
+        .pipe(catchError(this.handleError<ApplicantModel[]>('getApplicants', [])))
+        
     }
     
 }

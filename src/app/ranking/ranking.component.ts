@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RankingService } from './ranking.service';
+import { ApplicantModel } from './applicant.model';
 
 @Component({
   selector: 'app-ranking',
@@ -10,22 +11,22 @@ export class RankingComponent implements OnInit {
   showSelected: boolean= true;
   col:number=12;
   applicants:any;
-  selectedApplicant:ApplicantModel
+  selectedApplicant:ApplicantModel;
   constructor(private _rankingService:RankingService) { }
 
   ngOnInit() {
     this._rankingService.getApplicants()
-      .then(
+      .subscribe(
         data=>{
           this.applicants =data;
-          this.selectedApplicant =data[0]:
+          this.selectedApplicant =data[0];
         }
       )
   }
 
   selected(secelted:ApplicantModel){
     this.showSelected = true;
-    this.selectedApplicant =secelted:
+    this.selectedApplicant =secelted;
     //this.col=9
   }
   close(){

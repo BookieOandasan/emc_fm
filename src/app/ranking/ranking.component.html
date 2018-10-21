@@ -41,11 +41,10 @@
   </div>
   <div class="col-6">
 
-
-<div class="col-xs-offset-0" *ngIf="showSelected">
+<div class="col-xs-offset-0" *ngIf="selectedApplicant">
     <div class="card">
-      <div class="card-header bg-primary small p-0 m-0">Details: {{selectedApplicant.firstname}}
-        {{selectedApplicant.lastname}} <button class="btn small float-right bg-primary " (click)=close()>
+      <div class="card-header bg-primary small p-0 m-0">Details: {{selectedApplicant?.firstname}}
+        {{selectedApplicant?.lastname}} <button class="btn small float-right bg-primary " (click)=close()>
           <i class="fa fa-window-close"></i>
         </button></div>
       <div class="card-body">

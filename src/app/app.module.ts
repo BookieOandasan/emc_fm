@@ -27,6 +27,7 @@ import { UiModule } from './ui/ui.module';
 import { RankingService } from './ranking/ranking.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RankingAddComponent } from './ranking-add/ranking-add.component';
+import { RankingAddService } from './ranking-add/ranking-add.service';
 
 @NgModule({
   imports: [
@@ -69,6 +70,7 @@ import { RankingAddComponent } from './ranking-add/ranking-add.component';
     AuthService,
     HttpErrorHandler,
     RankingService,
+    RankingAddService,
     MessageService,
     { provide: RequestCache, useClass: RequestCacheWithMap },
     httpInterceptorProviders
