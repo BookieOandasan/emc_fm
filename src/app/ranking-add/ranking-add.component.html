@@ -65,11 +65,21 @@
         <span class="input-group-text table-bordered" id="basic-addon1">Us Grad</span>
       </div>
       <!-- <input type="text" class="form-control table-bordered"  aria-label="Username" aria-describedby="basic-addon1"> -->
-      <select>
+      <!-- <select>
         <option value="yes">Yes</option>
         <option value="no">No</option>
 
-      </select>
+      </select> -->
+      <ngx-toggle
+        onColor="{{model.onColor}}"
+        onText="{{model.onText}}"
+        offColor="{{model.offColor}}"
+        offText="{{model.offText}}"
+        [disabled]="model.disabled"
+        [size]="model.size"
+        [(ngModel)]="model.value"
+    >
+    </ngx-toggle>
     </div>
     <diV class="row ml-2 small text-muted">Interview Details:</diV>
     <div class="input-group p-1 m-1">

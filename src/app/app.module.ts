@@ -28,10 +28,12 @@ import { RankingService } from './ranking/ranking.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RankingAddComponent } from './ranking-add/ranking-add.component';
 import { RankingAddService } from './ranking-add/ranking-add.service';
+import {NgxToggleModule} from "ngx-toggle";
 
 @NgModule({
   imports: [
     BrowserModule,
+    NgxToggleModule,
     FormsModule,
     UiModule,
     AppRoutingModule,

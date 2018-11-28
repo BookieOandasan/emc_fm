@@ -19,7 +19,20 @@ export class RankingAddComponent implements OnInit {
     state: [''],
     zip: ['']
 
-  })
+    
+
+  });
+
+  model: any = {
+    onColor: 'primary',
+    offColor: 'secondary',
+    onText: 'Yes',
+    offText: 'No',
+    disabled: false,
+    
+    size: '',
+    value: null
+  };
   //  new FormGroup({
   //   firstName: new FormControl(''),
   //   lastName: new FormControl('')
@@ -38,6 +51,7 @@ export class RankingAddComponent implements OnInit {
     var applicant = new ApplicantModel()
     applicant.firstname =this.applicantForm.value.firstName;
     applicant.lastname =this.applicantForm.value.lastName;
+    applicant.usGrad = this.model.value;
 
     this.service.saveNewApplicant(applicant).subscribe(appl=> {
       console.log("Saved")
